@@ -1,4 +1,15 @@
 {
+  "name": "mod-18-chall",
+  "version": "1.0.1",
+  "description": "Mongoose back-end project - Main",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "seed": "node utils/seed",
+    "heroku-postbuild": "node utils/seed.js"
+  },
   "dependencies": {
     "express.js": "^1.0.0",
     "mongoose": "^8.0.1"
