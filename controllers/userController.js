@@ -59,7 +59,7 @@ module.exports = {
           }
     
           await Thought.deleteMany({ _id: { $in: user.thoughts } });
-          res.json({ message: 'Course and students deleted!' });
+          res.json({ message: 'user and thoughts deleted!' });
         } catch (err) {
           res.status(500).json(err);
         }
@@ -70,7 +70,7 @@ module.exports = {
         console.log(req.body);
     
         try {
-          const user = await Student.findOneAndUpdate(
+          const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
             { $addToSet: { friends: req.body } },
             { runValidators: true, new: true }
@@ -90,7 +90,7 @@ module.exports = {
       // Remove friend from a user
       async removeFriend(req, res) {
         try {
-          const user = await Student.findOneAndUpdate(
+          const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
             { $pull: { friend: { friendId: req.params.friendId } } },
             { runValidators: true, new: true }
